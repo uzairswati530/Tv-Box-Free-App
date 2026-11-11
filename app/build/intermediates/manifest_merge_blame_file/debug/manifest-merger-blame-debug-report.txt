@@ -1,0 +1,123 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mytv.launcher"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\tv\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\tv\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\tv\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\tv\app\src\main\AndroidManifest.xml:6:22-76
+13
+14    <uses-feature
+14-->D:\tv\app\src\main\AndroidManifest.xml:8:5-90
+15        android:name="android.hardware.touchscreen"
+15-->D:\tv\app\src\main\AndroidManifest.xml:8:19-62
+16        android:required="false" />
+16-->D:\tv\app\src\main\AndroidManifest.xml:8:63-87
+17    <uses-feature
+17-->D:\tv\app\src\main\AndroidManifest.xml:9:5-87
+18        android:name="android.software.leanback"
+18-->D:\tv\app\src\main\AndroidManifest.xml:9:19-59
+19        android:required="false" />
+19-->D:\tv\app\src\main\AndroidManifest.xml:9:60-84
+20
+21    <permission
+21-->[androidx.core:core:1.12.0] C:\Users\DELL\.gradle\caches\transforms-3\440a64c1659b3784956be1ef27019da1\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+22        android:name="com.mytv.launcher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+22-->[androidx.core:core:1.12.0] C:\Users\DELL\.gradle\caches\transforms-3\440a64c1659b3784956be1ef27019da1\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+23        android:protectionLevel="signature" />
+23-->[androidx.core:core:1.12.0] C:\Users\DELL\.gradle\caches\transforms-3\440a64c1659b3784956be1ef27019da1\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+24
+25    <uses-permission android:name="com.mytv.launcher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+25-->[androidx.core:core:1.12.0] C:\Users\DELL\.gradle\caches\transforms-3\440a64c1659b3784956be1ef27019da1\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+25-->[androidx.core:core:1.12.0] C:\Users\DELL\.gradle\caches\transforms-3\440a64c1659b3784956be1ef27019da1\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+26
+27    <application
+27-->D:\tv\app\src\main\AndroidManifest.xml:11:5-40:19
+28        android:allowBackup="true"
+28-->D:\tv\app\src\main\AndroidManifest.xml:12:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.12.0] C:\Users\DELL\.gradle\caches\transforms-3\440a64c1659b3784956be1ef27019da1\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+30        android:banner="@mipmap/ic_launcher"
+30-->D:\tv\app\src\main\AndroidManifest.xml:15:9-45
+31        android:debuggable="true"
+32        android:extractNativeLibs="false"
+33        android:hardwareAccelerated="true"
+33-->D:\tv\app\src\main\AndroidManifest.xml:13:9-43
+34        android:icon="@mipmap/ic_launcher"
+34-->D:\tv\app\src\main\AndroidManifest.xml:14:9-43
+35        android:label="My TV"
+35-->D:\tv\app\src\main\AndroidManifest.xml:16:9-30
+36        android:supportsRtl="true"
+36-->D:\tv\app\src\main\AndroidManifest.xml:17:9-35
+37        android:theme="@style/AppTheme" >
+37-->D:\tv\app\src\main\AndroidManifest.xml:18:9-40
+38        <activity
+38-->D:\tv\app\src\main\AndroidManifest.xml:21:9-39:20
+39            android:name="com.mytv.launcher.MainActivity"
+39-->D:\tv\app\src\main\AndroidManifest.xml:22:13-41
+40            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|keyboard|layoutDirection|locale|mcc|mnc|navigation|smallestScreenSize|touchscreen|uiMode|density|fontScale|fontWeightAdjustment"
+40-->D:\tv\app\src\main\AndroidManifest.xml:23:13-215
+41            android:exported="true"
+41-->D:\tv\app\src\main\AndroidManifest.xml:24:13-36
+42            android:keepScreenOn="true"
+42-->D:\tv\app\src\main\AndroidManifest.xml:25:13-40
+43            android:launchMode="singleTask"
+43-->D:\tv\app\src\main\AndroidManifest.xml:26:13-44
+44            android:resizeableActivity="true"
+44-->D:\tv\app\src\main\AndroidManifest.xml:27:13-46
+45            android:windowSoftInputMode="adjustResize" >
+45-->D:\tv\app\src\main\AndroidManifest.xml:28:13-55
+46            <intent-filter>
+46-->D:\tv\app\src\main\AndroidManifest.xml:30:13-33:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->D:\tv\app\src\main\AndroidManifest.xml:31:17-69
+47-->D:\tv\app\src\main\AndroidManifest.xml:31:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->D:\tv\app\src\main\AndroidManifest.xml:32:17-77
+49-->D:\tv\app\src\main\AndroidManifest.xml:32:27-74
+50            </intent-filter>
+51            <intent-filter>
+51-->D:\tv\app\src\main\AndroidManifest.xml:35:13-38:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->D:\tv\app\src\main\AndroidManifest.xml:31:17-69
+52-->D:\tv\app\src\main\AndroidManifest.xml:31:25-66
+53
+54                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+54-->D:\tv\app\src\main\AndroidManifest.xml:37:17-86
+54-->D:\tv\app\src\main\AndroidManifest.xml:37:27-83
+55            </intent-filter>
+56        </activity>
+57
+58        <provider
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+59            android:name="androidx.startup.InitializationProvider"
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+60            android:authorities="com.mytv.launcher.androidx-startup"
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+61            android:exported="false" >
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+62            <meta-data
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+64                android:value="androidx.startup" />
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\DELL\.gradle\caches\transforms-3\40af677edc9e981bf1ec9bb11c8b1d32\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+65            <meta-data
+65-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\DELL\.gradle\caches\transforms-3\4b8f05b04d1415b92185bf8ed00c3550\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+66-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\DELL\.gradle\caches\transforms-3\4b8f05b04d1415b92185bf8ed00c3550\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+67                android:value="androidx.startup" />
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\DELL\.gradle\caches\transforms-3\4b8f05b04d1415b92185bf8ed00c3550\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+68        </provider>
+69    </application>
+70
+71</manifest>

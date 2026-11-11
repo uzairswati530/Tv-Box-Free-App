@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.mytv.launcher.app-merged_res-21:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.mytv.launcher.app-main-23:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.mytv.launcher.app-merged_res-21:/drawable_ic_tv_foreground.xml.flat",
+        "source": "com.mytv.launcher.app-main-23:/drawable/ic_tv_foreground.xml"
+    },
+    {
+        "merged": "com.mytv.launcher.app-merged_res-21:/drawable_ic_tv.xml.flat",
+        "source": "com.mytv.launcher.app-main-23:/drawable/ic_tv.xml"
+    }
+]

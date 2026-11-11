@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My TV</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+<style>
+:root{color-scheme:dark;--bg:#0b1426;--bg2:#16264a;--text:#f2f5fb;--dim:#9aa8c4;--focus:#ffffff;box-sizing:border-box}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:linear-gradient(160deg,var(--bg2),var(--bg) 65%);color:var(--text);font-family:"Trebuchet MS","Segoe UI",Roboto,Arial,sans-serif;overflow-y:auto;overflow-x:hidden;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{min-height:100%;display:flex;flex-direction:column;padding:2.2vh 4vw}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:1.2vh 3vw;font-size:clamp(14px,2.3vh,22px);color:var(--dim)}
+.top .on{color:var(--text);border-bottom:3px solid var(--text);padding-bottom:4px}
+.top form{flex:0 1 28vw}
+.top input{width:100%;background:rgba(255,255,255,.08);border:2px solid transparent;border-radius:999px;color:var(--text);font:inherit;padding:.5em 1.1em}
+.top input:focus{outline:none;border-color:var(--focus)}
+.sp{flex:1}
+#clock{font-size:clamp(18px,3.4vh,32px);color:var(--text)}
+.hero{padding:3vh 0 1vh}
+.hero h1{margin:0;font-size:clamp(28px,7vh,64px);font-weight:700;letter-spacing:-.01em}
+.hero p{margin:.5em 0 0;color:var(--dim);font-size:clamp(14px,2.4vh,22px)}
+h2{margin:2.6vh 0 1.4vh;font-size:clamp(14px,2.4vh,22px);font-weight:600}
+.row{display:flex;gap:1.4vw;overflow-x:auto;padding:1vh .6vw 2vh;scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.tile{flex:0 0 clamp(120px,15vw,240px);aspect-ratio:16/9;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:clamp(14px,2.6vh,26px);padding:.4em;transition:transform .1s}
+.tile:hover,.tile:focus{outline:4px solid var(--focus);outline-offset:2px;transform:scale(1.05)}
+.t-yt{background:#d62718}.t-nf{background:#141414;color:#e50914}.t-pv{background:#0b5cad}
+.t-tw{background:#7a3ff0}.t-ym{background:#e8ebf0;color:#c4122f}.t-sp{background:#1b9e4b}
+.t-gg{background:#2f6fe4}.t-ps{background:#e9ecef;color:#1c6a4a}.t-fb{background:#1877f2}
+.t-wa{background:#1f9d57}.t-gm{background:#c5352b}.t-mp{background:#35507f}
+.t-ne{background:#3a4458}.t-dm{background:#17314f}.t-sf{background:#6b3a8f}
+.t-my{background:#2a3a5c}.t-add{background:transparent;border:2px dashed var(--dim);color:var(--dim)}
+#addbox{display:flex;gap:1vw;flex-wrap:wrap;align-items:center;margin:0 .6vw 1vh}
+#addbox[hidden]{display:none}
+#addbox input{background:rgba(255,255,255,.08);border:2px solid transparent;border-radius:8px;color:var(--text);font:inherit;padding:.5em .8em;min-width:200px}
+#addbox input:focus{outline:none;border-color:var(--focus)}
+#addbox button{background:#2f6fe4;border:2px solid transparent;border-radius:8px;color:#fff;font:inherit;padding:.5em 1em;cursor:pointer}
+#addbox button:focus,#addbox button:hover{outline:none;border-color:var(--focus)}
+.hint{margin-top:auto;padding-top:2vh;color:var(--dim);font-size:clamp(12px,2vh,18px)}
+button.fs{background:none;border:2px solid transparent;color:var(--dim);font:inherit;cursor:pointer;border-radius:8px;padding:.2em .6em}
+button.fs:focus,button.fs:hover{outline:none;border-color:var(--focus);color:var(--text)}
+@media (max-width:900px){
+  .top{gap:1.2vh 4vw}
+  .top form{flex:1 1 100%;order:5}
+  .row{gap:2.4vw}
+  .tile{flex-basis:clamp(130px,26vw,220px);font-size:clamp(14px,3.4vw,22px)}
+}
+@media (max-width:600px){
+  .wrap{padding:2vh 5vw}
+  .top{font-size:16px}
+  #clock{font-size:20px}
+  .hero{padding:2vh 0 0}
+  .hero h1{font-size:clamp(26px,8vw,40px)}
+  .hero p{font-size:15px}
+  h2{font-size:16px}
+  .row{flex-wrap:wrap;overflow:visible;gap:3vw;padding:1vh 0}
+  .tile{flex:0 0 calc(50% - 1.5vw);font-size:16px}
+  #addbox input{flex:1 1 100%;min-width:0}
+  .hint{display:none}
+}
+@media (max-height:500px) and (orientation:landscape){
+  .hero{display:none}
+  .tile{flex-basis:clamp(110px,16vw,200px)}
+}
+@media (prefers-reduced-motion:reduce){.tile{transition:none}}
+@media (max-width:1100px){.tile{flex-basis:clamp(130px,22vw,220px)}}
+@media (max-width:700px){.top{flex-wrap:wrap;gap:12px}.top form{flex:1 1 100%;order:5}.tile{flex-basis:42vw}.hero{padding:2vh 0}}
+@media (prefers-reduced-motion:reduce){.tile{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top">
+    <form id="sf" action="https://www.youtube.com/results" method="get">
+      <input name="search_query" placeholder="Search YouTube" aria-label="Search YouTube" autocomplete="off">
+    </form>
+    <span class="on">Home</span>
+    <button class="fs" id="fs" type="button">Full screen</button>
+    <span class="sp"></span>
+    <span id="clock"></span>
+  </nav>
+
+  <section class="hero">
+    <h1 id="greet">Welcome</h1>
+    <p>Pick an app and press Enter.</p>
+  </section>
+
+  <h2>Favorite apps</h2>
+  <div class="row">
+    <a class="tile t-yt" href="https://www.youtube.com/tv">YouTube</a>
+    <a class="tile t-nf" href="https://www.netflix.com">Netflix</a>
+    <a class="tile t-pv" href="https://www.primevideo.com">Prime Video</a>
+    <a class="tile t-tw" href="https://www.twitch.tv">Twitch</a>
+    <a class="tile t-ym" href="https://music.youtube.com">YouTube Music</a>
+    <a class="tile t-sp" href="https://open.spotify.com">Spotify</a>
+    <a class="tile t-ps" href="https://play.google.com/store">Play Store</a>
+  </div>
+
+  <h2>More</h2>
+  <div class="row">
+    <a class="tile t-gg" href="https://www.google.com">Google</a>
+    <a class="tile t-fb" href="https://www.facebook.com">Facebook</a>
+    <a class="tile t-wa" href="https://web.whatsapp.com">WhatsApp</a>
+    <a class="tile t-gm" href="https://mail.google.com">Gmail</a>
+    <a class="tile t-mp" href="https://maps.google.com">Maps</a>
+    <a class="tile t-ne" href="https://news.google.com">News</a>
+    <a class="tile t-dm" href="https://www.dailymotion.com">Dailymotion</a>
+    <a class="tile t-sf" href="https://soundcloud.com">SoundCloud</a>
+  </div>
+
+  <h2>My apps</h2>
+  <div class="row" id="myrow"></div>
+  <div id="addbox" hidden>
+    <input id="an" placeholder="App name" aria-label="App name" autocomplete="off">
+    <input id="au" placeholder="Website link" aria-label="Website link" autocomplete="off">
+    <button id="asave" type="button">Save</button>
+    <button id="acancel" type="button">Cancel</button>
+  </div>
+
+  <div class="hint">Arrow keys move, Enter opens, Delete removes a tile in My apps, Esc leaves full screen.</div>
+</div>
+
+<script>
+(function(){
+  var clock=document.getElementById('clock'),greet=document.getElementById('greet');
+  function tick(){
+    var d=new Date(),h=d.getHours();
+    clock.textContent=d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+    greet.textContent=h<12?'Good morning':h<18?'Good afternoon':'Good evening';
+  }
+  tick();setInterval(tick,20000);
+
+  document.getElementById('fs').addEventListener('click',function(){
+    try{ if(!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }catch(e){}
+  });
+
+  var tiles=[];
+  function refresh(){tiles=[].slice.call(document.querySelectorAll('.row')).map(function(r){return [].slice.call(r.querySelectorAll('.tile'));});}
+  refresh();
+  function pos(el){
+    for(var r=0;r<tiles.length;r++){var c=tiles[r].indexOf(el);if(c>-1)return [r,c];}
+    return null;
+  }
+  function go(r,c){
+    if(r<0||r>=tiles.length)return;
+    c=Math.max(0,Math.min(c,tiles[r].length-1));
+    tiles[r][c].focus();
+    tiles[r][c].scrollIntoView({block:'nearest',inline:'center'});
+  }
+  document.addEventListener('keydown',function(e){
+    refresh();
+    if(e.target.tagName==='INPUT'){
+      if(e.key==='ArrowDown'){e.preventDefault();go(0,0);}
+      return;
+    }
+    var p=pos(document.activeElement);
+    if(!p){
+      if(['ArrowLeft','ArrowRight','ArrowDown','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();go(0,0);}
+      return;
+    }
+    if(e.key==='ArrowRight'){e.preventDefault();go(p[0],p[1]+1);}
+    else if(e.key==='ArrowLeft'){e.preventDefault();go(p[0],p[1]-1);}
+    else if(e.key==='ArrowDown'){e.preventDefault();go(p[0]+1,p[1]);}
+    else if(e.key==='ArrowUp'){
+      e.preventDefault();
+      if(p[0]===0)document.querySelector('.top input').focus();else go(p[0]-1,p[1]);
+    }
+  });
+  var KEY='myTiles',my=[];
+  try{my=JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){my=[];}
+  var myRow=document.getElementById('myrow'),box=document.getElementById('addbox');
+  var an=document.getElementById('an'),au=document.getElementById('au');
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(my));}catch(e){}}
+  function render(){
+    myRow.innerHTML='';
+    my.forEach(function(t,i){
+      var a=document.createElement('a');
+      a.className='tile t-my';a.href=t.url;a.textContent=t.name;a.dataset.i=i;
+      myRow.appendChild(a);
+    });
+    var add=document.createElement('a');
+    add.className='tile t-add';add.href='#';add.id='add';add.textContent='+ Add app';
+    myRow.appendChild(add);
+    refresh();
+  }
+  myRow.addEventListener('click',function(e){
+    if(e.target.closest('#add')){e.preventDefault();box.hidden=false;an.value='';au.value='';an.focus();}
+  });
+  document.getElementById('acancel').addEventListener('click',function(){box.hidden=true;});
+  document.getElementById('asave').addEventListener('click',function(){
+    var n=an.value.trim(),u=au.value.trim();
+    if(!n||!u)return;
+    if(!/^https?:\/\//i.test(u))u='https://'+u;
+    my.push({name:n,url:u});save();box.hidden=true;render();
+    var last=myRow.querySelectorAll('.tile');last[last.length-1].focus();
+  });
+  document.addEventListener('keydown',function(e){
+    var el=document.activeElement;
+    if(e.key==='Delete'&&el&&el.classList&&el.classList.contains('t-my')){
+      e.preventDefault();my.splice(+el.dataset.i,1);save();render();
+      var t=myRow.querySelectorAll('.tile');t[Math.min(+el.dataset.i,t.length-1)].focus();
+    }
+  });
+  render();
+  go(0,0);
+})();
+</script>
+</body>
+</html>
